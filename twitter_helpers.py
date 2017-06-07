@@ -32,11 +32,11 @@ class TweetListener(StreamListener):
 
     def on_error(self, status_code):
         print('Got an error with status code: ' + str(status_code))
-        return True # To continue listening
+        return True # continue listening
 
     def on_timeout(self):
         print('Timeout...')
-        return True # To continue listening
+        return True # continue listening
 
 
 def get_trending_topics(woeid):
