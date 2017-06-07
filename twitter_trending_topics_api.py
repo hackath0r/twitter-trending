@@ -18,6 +18,10 @@ def index():
     trends = twitter_helpers.get_trending_topics(INDIA_WOEID)
     return render_template('index.html', trends=trends)
 
+@socketio.on('my event')
+def handle_my_message(message):
+    print  'received message: ', message
+
 
 if __name__ == '__main__':
     socketio.run(twitter_trending_app)
