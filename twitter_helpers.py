@@ -11,8 +11,6 @@ consumer_secret = cc.consumer_secret
 access_token = cc.access_token
 access_token_secret = cc.access_token_secret
 
-INDIA_WOEID = cc.INDIA_WOEID
-
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 twitter_api = tweepy.API(auth)
@@ -42,6 +40,7 @@ class TweetListener(StreamListener):
 
 
 def get_trending_topics(woeid):
+    '''Return list of 25 trending topics on twitter'''
     trends = twitter_api.trends_place(woeid)
     top_trends = trends[0].get("trends", None)
 
